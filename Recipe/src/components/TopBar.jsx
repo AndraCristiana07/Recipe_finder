@@ -11,29 +11,31 @@ import SearchField from "./Search";
 
 const filter = createFilterOptions();
 
-function TopBar(){
+function TopBar({recipes}){
 
     const navigate = useNavigate();
     const [value, setValue] = React.useState(null);
-    const handleSearch = (value) => {   
-        // TODO
-    };
+    // const [filteredRecipes, setFilteredRecipes] = useState([]);
+    const handleSearch = (searchValue) => {
+        const filtered = recipes.filter((recipe) =>
+          recipe.title.toLowerCase().includes(searchValue.toLowerCase())
+        );
+        // setFilteredRecipes(filtered); 
+      };
 
 
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" style={{background: "#4F9D69"}}>
                 <Toolbar>
-                <IconButton
-                    style={{color:"#0d2e17"}}
-                    size="large"
-                    edge="start"
-                    // color="inherit"
-                    aria-label="open drawer"
-                    sx={{ mr: 2 }}
-                >
-                    <MenuBookIcon />
-                </IconButton>
+                
+                    <MenuBookIcon
+                     style={{color:"#0d2e17"}}
+                     size="large"
+                     edge="start"
+                     // color="inherit"
+                     aria-label="open drawer"
+                     sx={{ mr: 2 }} />
                 <Typography
                     variant="h6"
                     noWrap
@@ -46,7 +48,7 @@ function TopBar(){
                 <SearchField onSearch={handleSearch}/>
                  
                 <IconButton  onClick={() => navigate("/")}> HOME</IconButton>
-                <IconButton  onClick={() => navigate("/recipes")}> RECIPES</IconButton>
+                <IconButton  onClick={() => navigate("/recipes/1")}> RECIPES</IconButton>
                 <IconButton  onClick={() => navigate("/settings")}> SETTINGS</IconButton>
 
             </Toolbar>

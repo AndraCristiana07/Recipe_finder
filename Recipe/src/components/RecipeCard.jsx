@@ -1,43 +1,87 @@
 import { Box, Card, Grid,  CardActions, CardContent, Stack } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import ListItemText from '@mui/material/ListItemText';
-import ListItem from '@mui/material/ListItem';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import CloseIcon from '@mui/icons-material/Close';
-import Slide from '@mui/material/Slide';
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { withStyles } from "@material-ui/core";
+import RecipeDialog from "./RecipeDialog";
+import { useState } from "react";
+export default function RecipeCard( {recipe, index, handleRecipeCardClick}){
 
-export default function RecipeCard( {recipe, index}){
+  
+ 
+    // const Transition = React.forwardRef(function Transition(props, ref) {
+    //     return <Slide direction="up" ref={ref} {...props} />;
+    //   });
+    const [clickCount, setClickCount] = useState(recipe.clicks);
 
-    const Transition = React.forwardRef(function Transition(props, ref) {
-        return <Slide direction="up" ref={ref} {...props} />;
-      });
       const [open, setOpen] = React.useState(false);
 
+      // const handleClickOpen = () => {
+      //   setOpen(true);
+      //   // updateClickCount(recipe.id);
+      //   if (handleRecipeCardClick) {
+      //     updateClickCount(recipe.id);
+      //   }
+      // };
+    
       const handleClickOpen = () => {
         setOpen(true);
+        // updateClickCount(recipe.id);
+        // if (handleClickOpen) {
+        //   handleRecipeCardClick(recipe.id);
+        // }
       };
-    
       const handleClose = () => {
         setOpen(false);
       };
+    //   const updateClickCount = (recipeId) => {
+    //     fetch(`http://localhost:5000/update-click-count/${recipeId}`, {
+    //         method: "POST",
+    //         body: JSON.stringify({}),
+    //         mode: 'cors',
+    //     })
+    //     .then((response) => {
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! Status: ${response.status}`);
+    //         }
+    //         return response.json();
+    //     })
+    //     .then((data) => {
+    //         console.log("Click count updated:", data);
+    //         console.log("Current clicks:", data.recipe.clicks);
+    //     })
+    //     .catch((error) => {
+    //         console.error("Error updating click count:", error);
+    //     });
+    // };
+    
+      // const handleClick = () => {
+      //   console.log("Recipe ID:", recipe.id);
       
-
+      //   fetch(`http://localhost:5000/update-click-count/${recipe.id}`, {
+      //     method: "POST",
+      //     mode: 'cors',
+      //   })
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       setClickCount(data.recipe.clicks);
+      //     })
+      //     .catch((error) => {
+      //       console.error("Error updating click count:", error);
+      //     });
+      
+      //   setOpen(true);
+      // };
+      
+    
       const stepsArray = recipe.steps.split('\n');
 
-      console.log(typeof recipe.ingredients);
+      // console.log(typeof recipe.ingredients);
     return(
             <div>   
-            <Card
+            <Card 
               onClick={handleClickOpen}
+              // onClick={handleClick}
               sx={{
                 minWidth: 330,
                 maxWidth: 330,
@@ -66,7 +110,8 @@ export default function RecipeCard( {recipe, index}){
                   transform: 'scale(1.05)',
                 },
               }}
-              key={index}
+              // key={index}
+              key={recipe.id}
               label={recipe}
             >
               <CardContent
@@ -90,85 +135,14 @@ export default function RecipeCard( {recipe, index}){
                 />
               </CardContent>
             </Card>
+           <RecipeDialog
            
+            recipe={recipe}
+            open={open}
+            handleClose={handleClose}
+            handleClickOpen={handleClickOpen}
+          />
            
-            <Dialog
-                fullScreen
-                open={open}
-                
-            >
-        <AppBar sx={{ position: 'relative' }} style={{background: "#4F9D69"}}>
-        <Toolbar >
-            <IconButton
-                edge="start"
-                color="inherit"
-                onClick={handleClose}
-                aria-label="close"
-            >
-                <CloseIcon />
-            </IconButton>
-            <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                {recipe.title}
-            </Typography>
-        </Toolbar>
-        
-        </AppBar>
-        <div style={{marginTop:"100px", display:"flex", justifyContent:"center",  alignItems:"center"}} >
-            <Card 
-            style={{
-                background:"#b7d6c1",
-                display:"flex", 
-                alignItems:"center", 
-                justifyContent:"center",
-                maxWidth:"700px",
-                borderRadius: '10px',
-                boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.25)',
-                marginBottom: "50px"
-               }}>
-                
-                <Stack direction={"column"} style={{marginTop:"20px",justifyContent:"center", alignItems:"center"}}>
-                <img 
-                    src={
-                      'data:image/jpeg;charset=utf-8;base64, ' +
-                      recipe.image.slice(2, recipe.image.length - 1)
-                    }
-                    alt={recipe.title}
-                    height="200px"
-                    
-                    width={"300px"}
-                  />
-                    <div>
-                        <Typography fontFamily={"cursive"} fontSize={"large"} style={{marginTop:"20px", display:"flex", justifyContent:"center",}}>Ingredients:</Typography>
-                        <div style={{ padding: "20px" }}>
-                            <List>
-                                {recipe.ingredients.map((ingredient, index) => (
-                                
-                                <ListItem key={index}>
-                                    <FiberManualRecordIcon fontSize="small"/>
-                                    <ListItemText primary={ingredient} />
-                                </ListItem>
-                                ))}
-                            </List>
-                        </div>
-                        
-
-                    </div>
-                        <div >
-                        <Typography fontFamily={"cursive"} fontSize={"large"} style={{display:"flex", justifyContent:"center",}}>How you cook it:</Typography>
-                        <div style={{padding:"20px"}}>
-                        {stepsArray.map((step, index) => (
-                          <div key={index}>
-                            <li style={{ fontWeight: 'bold' }}>Step {index + 1}:</li> {step}
-                          </div>
-                        ))}
-
-
-                        </div>
-                        </div>
-                </Stack>
-            </Card>
-        </div>
-      </Dialog>
       </div>
     )
 

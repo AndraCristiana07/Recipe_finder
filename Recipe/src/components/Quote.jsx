@@ -56,12 +56,14 @@ export default function Quote(){
   
     return(
         <Box  display="flex"
-        justifyContent="center"
-        alignItems="center"
+        // justifyContent="center"
+        // alignItems="center"
         marginTop="70px"
         marginBottom="30px">
-            <Card justifyContent="space-between" 
-            alignItems="center" style={{
+            <Card 
+            // justifyContent="space-between" 
+            // alignItems="center" 
+            style={{
                 margin:"0px", 
                 padding: "20px", 
                 maxWidth:"1000px", 

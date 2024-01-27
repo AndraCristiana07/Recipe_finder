@@ -32,7 +32,7 @@ export default function TopSection(){
                     </Typography>
                     
                     <Button 
-                    onClick={() => navigate("/recipes")}
+                    onClick={() => navigate("/recipes/1")}
                     variant="contained" style={{background:"#4F9D69", borderRadius: "15px",
 							width: "200px", marginTop: "20px"}}>
                         Explore

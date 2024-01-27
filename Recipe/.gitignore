@@ -11,9 +11,6 @@ node_modules
 dist
 dist-ssr
 *.local
-recipes1.json
-package-lock.json
-package.json
 
 # Editor directories and files
 .vscode/*
@@ -25,4 +22,3 @@ package.json
 *.njsproj
 *.sln
 *.sw?
-

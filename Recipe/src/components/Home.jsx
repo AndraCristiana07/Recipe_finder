@@ -7,10 +7,70 @@ import Improve from './Improve';
 import Footer from './Footer';
 import Quote from './Quote';
 import logo from '../assets/logo.png';
+import { useEffect } from 'react';
+import ScrollToTop from './ScrollToTop';
+import { useState } from 'react';
+import RecipeCard from './RecipeCard';
+import IngredientSearchField from './SearchByIngredients';
 
 export default function Home() {
 
     const navigate = useNavigate();
+    const [randomRecipe, setRandomRecipe] = useState(null);
+    const [mostClickedRecipe, setMostClickedRecipe] = useState(null);
+
+    
+    useEffect(() => {
+        fetch('http://localhost:5000/get-random-recipe', {
+          method: 'GET',
+          mode: 'cors',
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setRandomRecipe(data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      }, []);
+    
+      const handleRecipeCardClick = (recipeId) => {
+        navigate(`/recipe/${recipeId}`);
+      };
+
+
+      // useEffect(() => {
+      //   fetch('http://localhost:5000/get-most-clicked', {
+      //     method: 'GET',
+      //     mode: 'cors',
+      //   })
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       setMostClickedRecipe(data);
+      //     })
+      //     .catch((error) => {
+      //       console.error('Error fetching most clicked recipe:', error);
+      //     });
+      // }, []);
+      useEffect(() => {
+        fetch('http://localhost:5000/get-most-clicked', {
+          method: 'GET',
+          mode: 'cors',
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setMostClickedRecipe(data);
+          })
+          .catch((error) => {
+            console.error('Error fetching most clicked recipe:', error);
+          });
+      }, []);
+
+
+      // const handleSearchIngredients = (searchIng) => {
+      //   const filteredIngredients = 
+      // }
+      
     return (
        <><div>
             <TopBar onSearch={() => {}}></TopBar>
@@ -21,15 +81,93 @@ export default function Home() {
                 alignItems:"center"
             }}>
             <div style={{
-                justifyContent:"center", 
-                alignContent:"center",
                 margin:"20px",
                  }}>
                 <img  src={logo} alt="logo" width="1400px" height={"400px" } />
             </div>
             </div>
-            <Quote />
-        </div><div
+            <div style={{
+                display:"flex",
+                justifyContent:"center",
+                alignItems:"center"
+            }}>
+                <Quote />
+            </div>
+
+        </div>
+
+      
+        <div style={{
+                display:"flex",
+                justifyContent:"center",
+                alignItems:"center",
+                marginTop: "30px"
+            }}>
+                <Typography fontFamily={"cursive"} fontSize={"large"}  > Most Clicked recipe: </Typography>
+                
+        </div>
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: "30px"
+        }}
+      >
+      {mostClickedRecipe && (
+        <RecipeCard
+          key={mostClickedRecipe.id}
+          recipe={mostClickedRecipe}
+          onClick={() => handleRecipeCardClick(mostClickedRecipe.id)}
+        />
+      )}
+    </div>
+        <div style={{
+                display:"flex",
+                justifyContent:"center",
+                alignItems:"center",
+                marginTop: "30px"
+            }}>
+                <Typography fontFamily={"cursive"} fontSize={"large"}  > Try something new: </Typography>
+                
+        </div>
+        <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: "30px"
+        }}
+      >
+        {randomRecipe && (
+          <RecipeCard
+            key={randomRecipe.id}
+            recipe={randomRecipe}
+            onClick={() => handleRecipeCardClick(randomRecipe.id)}
+          />
+        )}
+      </div>
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: '30px',
+        }}
+      >
+        <IngredientSearchField recipes={[]} onSearch={(value) => console.log(value)} />
+      </div>
+      
+        <div
+        style={{  
+          display:"flex", 
+          justifyContent:"end",}}>
+          <ScrollToTop />
+        </div>
+
+        <div
             style={{
                 marginTop: "50px",
                 // position: "fixed",
@@ -41,5 +179,6 @@ export default function Home() {
             }}>
                 <Footer></Footer>
             </div></>
+            
     )
 }
