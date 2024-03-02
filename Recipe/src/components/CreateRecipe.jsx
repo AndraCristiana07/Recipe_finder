@@ -24,6 +24,7 @@ export default function RecipeForm() {
       .then((response) => response.json())
       .then((data) => {
         const recipesArray = Object.values(data);
+        console.log(data)
         console.log('Recipe created successfully:', data);
       })
       .catch((error) => {

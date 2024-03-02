@@ -132,6 +132,7 @@ export default function RecipeCard( {recipe, index, handleRecipeCardClick}){
                   }
                   alt={recipe.title}
                   height="200px"
+                  width="300px"
                 />
               </CardContent>
             </Card>

@@ -137,11 +137,11 @@ export default function Recipes() {
       <Stack direction={"row"} justifyContent={"space-between"}>
       <Typography style={{ marginTop: "20px" }} variant="h4">Searches</Typography>
       <Button 
-                    onClick={() => navigate("/create-recipe")}
-                    variant="contained" style={{background:"#4F9D69", borderRadius: "15px",
-							width: "200px", marginTop: "20px"}}>
-                <AddIcon fontSize="small"/>
-            Create a recipe
+        onClick={() => navigate("/create-recipe")}
+        variant="contained" style={{background:"#4F9D69", borderRadius: "15px",
+        width: "200px", marginTop: "20px"}}>
+        <AddIcon fontSize="small"/>
+        Create a recipe
       </Button>
       </Stack>
       <div style={{ margin: '20px 0' }}>

@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import ScrollToTop from "./ScrollToTop"
 
 export default function ChipRecipes() {
-    // const chips = ["burger", "pizza", "beef", "chicken", "pasta", "rice", "salad"];
+    const chips = ["burger", "pizza", "beef", "chicken", "pasta", "rice", "salad"];
     const navigate = useNavigate();
     const { chip, page, urlPerPage } = useParams();
     const [recipes, setRecipes] = useState([]);
@@ -18,11 +18,11 @@ export default function ChipRecipes() {
     const [perPage, setPerPage] = useState(parseInt(urlPerPage) || 20);
     const [search, setSearch] = React.useState('');
   
-    // const handleClick = (chip) => {
-    //     setSearch(chip);
+    const handleClick = (chip) => {
+        setSearch(chip);
     
-    //     navigate(`/recipes/${chip}/${page_}`);
-    // };
+        navigate(`/recipes/${chip}/${page_}`);
+    };
     
     const handlePageChange = (_, value) => {
         setPage(value);
@@ -71,7 +71,7 @@ useEffect(() => {
         <><div>
           <TopBar recipes={recipes}></TopBar>
           <Typography style={{ marginTop: "20px" }} variant="h4">Searches</Typography>
-          {/* <div>
+           <div>
             {chips.map((chip) => (
             <Chip
                 style={{ margin: "10px" }}
@@ -80,7 +80,7 @@ useEffect(() => {
                 onClick={() => handleClick(chip)}
             />
             ))}
-        </div> */}
+        </div> 
           
           {/* <RecipeCard recipes={search ? filteredRecipes : recipes}></RecipeCard>                 */}
           <div

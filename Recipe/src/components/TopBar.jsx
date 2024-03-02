@@ -49,7 +49,7 @@ function TopBar({recipes}){
                  
                 <IconButton  onClick={() => navigate("/")}> HOME</IconButton>
                 <IconButton  onClick={() => navigate("/recipes/1")}> RECIPES</IconButton>
-                <IconButton  onClick={() => navigate("/settings")}> SETTINGS</IconButton>
+                {/* <IconButton  onClick={() => navigate("/settings")}> SETTINGS</IconButton> */}
 
             </Toolbar>
         </AppBar>
