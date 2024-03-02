@@ -28,6 +28,7 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
+         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -93,10 +94,35 @@ To be able to use this project you will need some stuff first.
 
 ### Prerequisites
 
-* cmake
-  [Cmake Installation steps](https://cgold.readthedocs.io/en/latest/first-step/installation.html)
-* OpenGL
+* node,js and npm
+  ```sh
+  sudo apt-get install nodejs npm
+  ```
 
+* I also used vite to create my project, so if you want to create your own with it you can use:
+     ```sh
+  npm create vite@latest
+  ```
+### Installation
+
+If you want to make your own app like this you need to:
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/AndraCristiana07/Recipe_finder.git
+   ```
+2. Install dependencies
+   ```sh
+   npm install
+   ```
+3. Run the frontend
+   ```sh
+   node dev start
+   ```
+4. Run the backend
+    ```sh
+   python ./main.py
+   ```
 
 
 <!-- ROADMAP -->
@@ -122,6 +148,7 @@ To be able to use this project you will need some stuff first.
 - [x] Modify search to not fetch recipes untill there's at least 2 characters as input
 - [x] Make search by ingredients bar and functionalities in backend
 - [x] Make sure pagination works on every type of page
+- [x] Make download recipe button to download a pdf of the recipe page
 - [x] Add "create a recipe" button and make page for it
 - [x] Add functionalities for add recipe and update the json
 
@@ -130,8 +157,9 @@ To be able to use this project you will need some stuff first.
 ## Acknowledgments
 
 Some things that helped me while making this project :
-* [Learn OpenGL](https://learnopengl.com/)
-
+* [MUI components](https://mui.com/)
+* [React documantations](https://legacy.reactjs.org/docs/getting-started.html)
+* [Vite](https://vitejs.dev/)
 
 
 
