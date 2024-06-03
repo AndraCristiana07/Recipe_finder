@@ -94,10 +94,7 @@ To be able to use this project you will need some stuff first.
 
 ### Prerequisites
 
-* node,js and npm
-  ```sh
-  sudo apt-get install nodejs npm
-  ```
+* You need to install npm and node.js
 
 * I also used vite to create my project, so if you want to create your own with it you can use:
      ```sh
