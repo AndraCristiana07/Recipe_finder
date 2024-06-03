@@ -52,6 +52,7 @@ What can you do? You can manually search for a specific recipe by its name, or y
 Now for a full description of the pages:
 
 * Home page: 
+
 ![Home image](https://github.com/AndraCristiana07/Recipe_finder/blob/main/images/home.png?raw=true)
 
     * A page with a short desciption, some images with animations, a random quote that will change every time you acces the page, most clicked recipe, a "try recipe",a header and a footer.
@@ -61,6 +62,11 @@ Now for a full description of the pages:
     * If you need to search by title, just input what you want in the search bar and it will show a list with recipes. If you click on a recipe it will give you the recipe card.
 
 * Recipe page: 
+
+![Recipe Page image](https://github.com/AndraCristiana07/Recipe_finder/blob/main/images/recipe1.png?raw=true)
+
+![Recipe Page image](https://github.com/AndraCristiana07/Recipe_finder/blob/main/images/recipe2.png?raw=true)
+
     * Here there are displayed all the recipes with pagination. You can also choose how many recipes you want shown on the page. If you want to see the full recipe, you need to click on its card.
     * There's also chips with usually searched recipes (burger, pizza, beef, chicken, etc.). When you click on it, it will take you to a page with all the recipes with beef, for example. 
     * You can find another search bar here, but this time it's a search by ingredients. So if you want to search for a recipe that has eggs in it, you input it in the search by ingredients and it will take you to a page with all recipes that have that ingredient.
@@ -68,12 +74,14 @@ Now for a full description of the pages:
 
 You can see the whole recipe by clicking on its card. There you will find all the ingredients and steps you need.
 
+![Recipe Card image](https://github.com/AndraCristiana07/Recipe_finder/blob/main/images/recipe_card.png?raw=true)
+
 **Backend**
 
 The backend uses a json file where all the recipes are found.
 
 There's a format.py file where I format the json file to work for me.
-There's also the main.py file where all the functionalities are implemented for the app.
+There's also the main.py file where all the functionalities are implemented for the app like the ones for fetching the ingredients, the recipes, recipes by ingredients, recipes per page etc.
 
 
 ### Built With
