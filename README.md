@@ -52,6 +52,8 @@ What can you do? You can manually search for a specific recipe by its name, or y
 Now for a full description of the pages:
 
 * Home page: 
+![Home image](https://github.com/AndraCristiana07/Recipe_finder/blob/main/home.png?raw=true)
+
     * A page with a short desciption, some images with animations, a random quote that will change every time you acces the page, most clicked recipe, a "try recipe",a header and a footer.
     * After the description, there's a "explore" button that will take you to the recipe page
     * The "Most clicked recipe" and "Try something new" cards from this page will take you to those recipes directly.
