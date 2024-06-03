@@ -63,9 +63,9 @@ Now for a full description of the pages:
 
 * Recipe page: 
 
-![Recipe Page image](https://github.com/AndraCristiana07/Recipe_finder/blob/main/images/recipe1.png?raw=true)
+![Recipe Page image](https://github.com/AndraCristiana07/Recipe_finder/blob/main/images/recipes1.png?raw=true)
 
-![Recipe Page image](https://github.com/AndraCristiana07/Recipe_finder/blob/main/images/recipe2.png?raw=true)
+![Recipe Page image](https://github.com/AndraCristiana07/Recipe_finder/blob/main/images/recipes2.png?raw=true)
 
     * Here there are displayed all the recipes with pagination. You can also choose how many recipes you want shown on the page. If you want to see the full recipe, you need to click on its card.
     * There's also chips with usually searched recipes (burger, pizza, beef, chicken, etc.). When you click on it, it will take you to a page with all the recipes with beef, for example. 
