@@ -45,7 +45,7 @@
 
 A recipe finder web application where you can search the desired food you want to cook. 
 
-**Fronted**
+**Frontend**
 
 What can you do? You can manually search for a specific recipe by its name, or you can search by ingredients. You can also select a recipe type from the chips, so that you can see all the recipes with beef, chicken, etc.
 
